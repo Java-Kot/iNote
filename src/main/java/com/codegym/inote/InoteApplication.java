@@ -22,9 +22,4 @@ public class InoteApplication extends SpringBootServletInitializer {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(InoteApplication.class, args);
     }
-
-    @Bean
-    public iNoteService iNoteService() {
-        return new iNoteImpl();
-    }
 }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>Add iNote</h1>
+<p>
+    <a href="/">iNote list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/add}" th:object="${note}" method="post">
+    <label for="title"></label>
+    <input id="title" type="text" th:field="*{title}" />
+    <label for="content"></label>
+    <input id="content" type="text" th:field="*{content}" />
+    <select th:field="${notetype}">
+        <option th:each="t: ${notetype}" th:value="${t.id}" th:text="${t.name}"></option>
+    </select>
+    <input type="submit" value="add inote">
+</form>
+</body>
+</html>

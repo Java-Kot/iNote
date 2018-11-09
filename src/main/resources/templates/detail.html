@@ -6,11 +6,11 @@
 </head>
 <body>
 <table>
-<th:block th:each="note : ${notes}">
+<th:block th:each="note : ${inote}">
     <tr>
-        <td th:text="${note.id}"></td>
-        <td th:text="${note.title}"></td>
-        <td th:text="${note.content}"></td>
+        <td th:text="${note.id}" th:name="id"></td>
+        <td th:text="${note.title}" th:name="title"></td>
+        <td th:text="${note.content}" th:name="content"></td>
         <!--<td th:text="${note.typeNote.name}"></td>-->
         <!--<td><a th:href="@{admin/edit-post/__${post.id}__ }">Edit</a></td>-->
         <!--<td><a th:href="@{admin/delete-post/__${post.id}__ }">Delete</a></td>-->

@@ -5,7 +5,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "note_type")
-public class Type {
+public class TypeNote {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,7 +17,15 @@ public class Type {
     @OneToMany(targetEntity = iNote.class)
     private Set<iNote> iNotes;
 
-    public Type() {
+    public TypeNote() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

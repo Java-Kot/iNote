@@ -1,6 +1,6 @@
 package com.codegym.inote.service;
 
-import com.codegym.inote.model.Type;
+import com.codegym.inote.model.TypeNote;
 import com.codegym.inote.model.iNote;
 import com.codegym.inote.repository.iNoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("iNoteService")
 public class iNoteImpl implements iNoteService {
 
     @Autowired
@@ -21,12 +21,12 @@ public class iNoteImpl implements iNoteService {
 
     @Override
     public iNote findById(Integer id) {
-        return null;
+        return inoteRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void save(iNote post) {
-
+    public void save(iNote inote) {
+        inoteRepository.save(inote);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class iNoteImpl implements iNoteService {
     }
 
     @Override
-    public Iterable<iNote> findAllByCatergory(Type type) {
+    public Iterable<iNote> findAllByCatergory(TypeNote typeNote) {
         return null;
     }
 }

@@ -14,7 +14,7 @@ public class iNote {
 
     @ManyToOne
     @JoinColumn(name = "type_id")
-    private Type type;
+    private TypeNote typeNote;
 
     public iNote() {
     }
@@ -52,8 +52,8 @@ public class iNote {
         this.content = content;
     }
 
-    public Type getType() {
-        return type;
+    public TypeNote getTypeNote() {
+        return typeNote;
     }
 
     @Override
@@ -62,7 +62,7 @@ public class iNote {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", type=" + type +
+                ", typeNote=" + typeNote +
                 '}';
     }
 }
