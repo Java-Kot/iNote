@@ -1,7 +1,8 @@
-package com.codegym.inote.service;
+package com.codegym.inote.service.impl;
 
 import com.codegym.inote.model.TypeNote;
 import com.codegym.inote.repository.NotetypeRepository;
+import com.codegym.inote.service.NotetypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

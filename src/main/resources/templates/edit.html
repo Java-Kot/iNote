@@ -13,13 +13,17 @@
     <p th:text="${message}"></p>
 </th:block>
 <form th:action="@{/edit}" th:object="${note}" method="post">
-    <input type="hidden" th:field="*{id}" />
-    <label for="title"></label>
+    <input type="hidden" name="id" th:field="*{id}" />
+    <label for="title">Title</label>
     <input id="title" type="text" th:field="*{title}" />
-    <label for="content"></label>
+    <label for="content">Content</label>
     <input id="content" type="text" th:field="*{content}" />
-    <select th:field="${notetype}">
-        <option th:each="t: ${notetype}" th:value="${t.id}" th:text="${t.name}"></option>
+    <select name="notetypes">
+        <option th:each="t : ${notetypes}"
+                th:value="${t.id}"
+                th:text="${t.name}"
+                th:selected="(${t.id} ==  *{typeNote?.id})">
+        </option>
     </select>
     <input type="submit" value="edit inote">
 </form>

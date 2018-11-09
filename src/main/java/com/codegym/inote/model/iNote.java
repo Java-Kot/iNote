@@ -13,14 +13,10 @@ public class iNote {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "type_id")
+    @JoinColumn(name = "node_type_id")
     private TypeNote typeNote;
 
     public iNote() {
-    }
-
-    public iNote(String title) {
-        this.title = title;
     }
 
     public iNote(String title, String content) {
@@ -56,13 +52,7 @@ public class iNote {
         return typeNote;
     }
 
-    @Override
-    public String toString() {
-        return "iNote{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", typeNote=" + typeNote +
-                '}';
+    public void setTypeNote(TypeNote typeNote) {
+        this.typeNote = typeNote;
     }
 }

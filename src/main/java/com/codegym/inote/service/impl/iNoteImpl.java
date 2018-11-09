@@ -1,8 +1,9 @@
-package com.codegym.inote.service;
+package com.codegym.inote.service.impl;
 
 import com.codegym.inote.model.TypeNote;
 import com.codegym.inote.model.iNote;
 import com.codegym.inote.repository.iNoteRepository;
+import com.codegym.inote.service.iNoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

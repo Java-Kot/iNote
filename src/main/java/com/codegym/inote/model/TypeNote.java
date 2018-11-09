@@ -13,11 +13,14 @@ public class TypeNote {
     private String name;
     private String description;
 
-//    @OneToMany(mappedBy = "note_type", fetch = FetchType.LAZY)
     @OneToMany(targetEntity = iNote.class)
     private Set<iNote> iNotes;
 
     public TypeNote() {
+    }
+
+    public TypeNote(String name) {
+        this.name = name;
     }
 
     public int getId() {

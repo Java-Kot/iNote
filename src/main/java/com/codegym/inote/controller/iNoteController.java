@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-
 @Controller
 public class iNoteController {
 
@@ -25,8 +23,8 @@ public class iNoteController {
     @Autowired
     private NotetypeService notetypeService;
 
-    @ModelAttribute("notetype")
-    public Iterable<TypeNote> catergory(){
+    @ModelAttribute("notetypes")
+    public Iterable<TypeNote> typeNotes(){
         return notetypeService.findAll();
     }
 

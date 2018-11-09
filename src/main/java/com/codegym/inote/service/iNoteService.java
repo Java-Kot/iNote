@@ -4,7 +4,6 @@ import com.codegym.inote.model.TypeNote;
 import com.codegym.inote.model.iNote;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
 
 public interface iNoteService {
     Page<iNote> findAll(Pageable pageable);
