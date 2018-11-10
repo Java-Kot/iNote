@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Note Type</title>
+</head>
+<body>
+    <h1>Delete Note Type</h1>
+    <h2>Are you sure?</h2>
+    <p>
+        <a href="/type">Note Type list</a>
+    </p>
+    <!--/*@thymesVar id="notetype" type="com.codegym.inote.model.Notetype"*/-->
+    <form th:action="@{/type/del}" th:object="${notetype}" method="post">
+        <input th:type="hidden" name="id" th:field="*{id}">
+        <table>
+            <tr>
+                <td>Note Type title:</td>
+                <td th:text="*{name}"></td>
+            </tr>
+            <tr>
+                <td>Note Type text:</td>
+                <td th:text="*{description}"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Delete note type"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

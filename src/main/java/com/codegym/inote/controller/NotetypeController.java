@@ -59,4 +59,18 @@ public class NotetypeController {
         modelAndView.addObject("message", "Add Success !");
         return modelAndView;
     }
+
+    @GetMapping("/type/del/{id}")
+    public ModelAndView showDel(@PathVariable Integer id){
+        Notetype notetype = notetypeService.findById(id);
+        ModelAndView modelAndView = new ModelAndView("/notetype/del");
+        modelAndView.addObject("notetype", notetype);
+        return modelAndView;
+    }
+
+    @PostMapping("/type/del")
+    public String delNotetype(@ModelAttribute("notetype") Notetype notetype) {
+        notetypeService.remove(notetype.getId());
+        return "redirect:/type";
+    }
 }

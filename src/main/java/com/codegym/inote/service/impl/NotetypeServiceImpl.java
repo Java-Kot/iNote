@@ -29,6 +29,6 @@ public class NotetypeServiceImpl implements NotetypeService {
 
     @Override
     public void remove(Integer id) {
-
+        notetypeRepository.deleteById(id);
     }
 }

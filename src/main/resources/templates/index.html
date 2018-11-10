@@ -11,7 +11,7 @@
         <td th:text="${note.id}"></td>
         <td th:text="${note.title}"></td>
         <td th:text="${note.content}"></td>
-        <td th:text="${note.notetype?.name}"></td>
+        <td th:text="${note.notetype.name}"></td>
         <td><a th:href="@{/edit-note/__${note.id}__ }">Edit</a></td>
         <td><a th:href="@{/del-note/__${note.id}__ }">Delete</a></td>
     </tr>
