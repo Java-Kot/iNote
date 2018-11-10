@@ -7,12 +7,12 @@
 <body>
 <h1>Edit Note Type</h1>
 <p>
-    <a href="/notetypes">Note Type list</a>
+    <a href="/type">Note Type list</a>
 </p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
 </th:block>
-<form th:action="@{/t/edit}" th:object="${typenotes}" method="post">
+<form th:action="@{/type/edit}" th:object="${notetype}" method="post">
     <input type="hidden" name="id" th:field="*{id}" />
     <label for="title">Name</label>
     <input id="title" type="text" th:field="*{name}" />
