@@ -1,6 +1,6 @@
 package com.codegym.inote.formatter;
 
-import com.codegym.inote.model.TypeNote;
+import com.codegym.inote.model.Notetype;
 import com.codegym.inote.service.NotetypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.Formatter;
@@ -10,7 +10,7 @@ import java.text.ParseException;
 import java.util.Locale;
 
 @Component
-public class NotetypeFormatter implements Formatter<TypeNote> {
+public class NotetypeFormatter implements Formatter<Notetype> {
 
     private NotetypeService notetypeService;
 
@@ -19,17 +19,13 @@ public class NotetypeFormatter implements Formatter<TypeNote> {
         this.notetypeService = notetypeService;
     }
 
-    public NotetypeFormatter() {
-
-    }
-
     @Override
-    public TypeNote parse(String text, Locale locale) throws ParseException {
+    public Notetype parse(String text, Locale locale) throws ParseException {
         return notetypeService.findById(Integer.parseInt(text));
     }
 
     @Override
-    public String print(TypeNote object, Locale locale) {
+    public String print(Notetype object, Locale locale) {
         return "[" + object.getId() + ", " +object.getName() + "]";
     }
 }

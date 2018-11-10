@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "note")
-public class iNote {
+public class Note {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,12 +14,12 @@ public class iNote {
 
     @ManyToOne
     @JoinColumn(name = "node_type_id")
-    private TypeNote typeNote;
+    private Notetype notetype;
 
-    public iNote() {
+    public Note() {
     }
 
-    public iNote(String title, String content) {
+    public Note(String title, String content) {
         this.title = title;
         this.content = content;
     }
@@ -48,11 +48,11 @@ public class iNote {
         this.content = content;
     }
 
-    public TypeNote getTypeNote() {
-        return typeNote;
+    public Notetype getNotetype() {
+        return notetype;
     }
 
-    public void setTypeNote(TypeNote typeNote) {
-        this.typeNote = typeNote;
+    public void setNotetype(Notetype notetype) {
+        this.notetype = notetype;
     }
 }

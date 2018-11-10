@@ -1,13 +1,13 @@
 package com.codegym.inote.service;
 
-import com.codegym.inote.model.TypeNote;
+import com.codegym.inote.model.Notetype;
 
 public interface NotetypeService {
-    Iterable<TypeNote> findAll();
+    Iterable<Notetype> findAll();
 
-    TypeNote findById(Integer id);
+    Notetype findById(Integer id);
 
-    void save(TypeNote typeNote);
+    void save(Notetype notetype);
 
     void remove(Integer id);
 }

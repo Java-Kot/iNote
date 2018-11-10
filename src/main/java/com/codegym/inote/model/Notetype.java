@@ -5,7 +5,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "note_type")
-public class TypeNote {
+public class Notetype {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,13 +13,13 @@ public class TypeNote {
     private String name;
     private String description;
 
-    @OneToMany(targetEntity = iNote.class)
-    private Set<iNote> iNotes;
+    @OneToMany(targetEntity = Note.class)
+    private Set<Note> Notes;
 
-    public TypeNote() {
+    public Notetype() {
     }
 
-    public TypeNote(String name) {
+    public Notetype(String name) {
         this.name = name;
     }
 
@@ -47,11 +47,11 @@ public class TypeNote {
         this.description = description;
     }
 
-    public Set<iNote> getiNotes() {
-        return iNotes;
+    public Set<Note> getNotes() {
+        return Notes;
     }
 
-    public void setiNotes(Set<iNote> iNotes) {
-        this.iNotes = iNotes;
+    public void setNotes(Set<Note> notes) {
+        this.Notes = notes;
     }
 }

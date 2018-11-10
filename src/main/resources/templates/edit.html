@@ -2,27 +2,27 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Edit iNote</title>
 </head>
 <body>
-<h1>Add iNote</h1>
+<h1>Edit iNote</h1>
 <p>
     <a href="/">iNote list</a>
 </p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
 </th:block>
-<form th:action="@{/edit}" th:object="${note}" method="post">
+<form th:action="@{/edit-note}" th:object="${note}" method="post">
     <input type="hidden" name="id" th:field="*{id}" />
     <label for="title">Title</label>
     <input id="title" type="text" th:field="*{title}" />
     <label for="content">Content</label>
     <input id="content" type="text" th:field="*{content}" />
-    <select name="notetypes">
-        <option th:each="t : ${notetypes}"
+    <select name="notetype">
+        <option th:each="t:${notetypes}"
                 th:value="${t.id}"
                 th:text="${t.name}"
-                th:selected="(${t.id} ==  *{typeNote?.id})">
+                th:selected="(${t.id} ==  *{notetype?.id})">
         </option>
     </select>
     <input type="submit" value="edit inote">
