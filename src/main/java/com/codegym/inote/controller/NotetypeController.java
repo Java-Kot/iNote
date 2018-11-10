@@ -43,4 +43,20 @@ public class NotetypeController {
         modelAndView.addObject("message", "Edit Success !");
         return modelAndView;
     }
+
+    @GetMapping("/type/add")
+    public ModelAndView showAdd(){
+        ModelAndView modelAndView = new ModelAndView("/notetype/add");
+        modelAndView.addObject("notetype", new Notetype());
+        return modelAndView;
+    }
+
+    @PostMapping("/type/add")
+    public ModelAndView addTypenote(@ModelAttribute("notetype") Notetype notetype) {
+        notetypeService.save(notetype);
+        ModelAndView modelAndView = new ModelAndView("/notetype/add");
+        modelAndView.addObject("notetype", new Notetype());
+        modelAndView.addObject("message", "Add Success !");
+        return modelAndView;
+    }
 }

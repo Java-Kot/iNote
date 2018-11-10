@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Note Type</title>
+</head>
+<body>
+<h1>Add Note Type</h1>
+<p>
+    <a href="/type">Note Type list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/type/add}" th:object="${notetype}" method="post">
+    <input type="hidden" name="id" th:field="*{id}" />
+    <label for="title">Name</label>
+    <input id="title" type="text" th:field="*{name}" />
+    <label for="content">Description</label>
+    <input id="content" type="text" th:field="*{description}" />
+    <input type="submit" value="add type note">
+</form>
+</body>
+</html>
