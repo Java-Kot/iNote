@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit iNote</title>
-</head>
+<html lang="vn" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
 <body>
 <h1>Edit iNote</h1>
 <p>
@@ -27,5 +24,6 @@
     </select>
     <input type="submit" value="edit inote">
 </form>
+<footer th:replace="layout :: footer"></footer>
 </body>
 </html>
