@@ -1,5 +1,6 @@
 package com.codegym.inote.controller;
 
+import com.codegym.inote.model.Note;
 import com.codegym.inote.model.Notetype;
 import com.codegym.inote.service.NotetypeService;
 import com.codegym.inote.service.NoteService;
@@ -15,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class NotetypeController {
 
     @Autowired
-    private NoteService inoteService;
+    private NoteService noteService;
 
     @Autowired
     private NotetypeService notetypeService;
@@ -72,5 +73,15 @@ public class NotetypeController {
     public String delNotetype(@ModelAttribute("notetype") Notetype notetype) {
         notetypeService.remove(notetype.getId());
         return "redirect:/type";
+    }
+
+    @GetMapping("/type/{id}")
+    public ModelAndView showNotetype(@PathVariable Integer id) {
+        Notetype notetype = notetypeService.findById(id);
+        Iterable<Note> notes = noteService.findAllByNotetype(notetype);
+        ModelAndView modelAndView = new ModelAndView("/notetype/view");
+        modelAndView.addObject("notetype", notetype);
+        modelAndView.addObject("notes", notes);
+        return modelAndView;
     }
 }

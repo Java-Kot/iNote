@@ -8,11 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Optional;
 
 @Controller
 public class NoteController {
@@ -29,11 +28,19 @@ public class NoteController {
     }
 
     @GetMapping("/")
-    public ModelAndView showIndex(Pageable pageable){
+    public ModelAndView showIndex(@RequestParam("search") Optional<String> search, Pageable pageable){
         Page<Note> notes;
-        notes = noteService.findAll(pageable);
+        Page<Note> notescontent;
+        if(search.isPresent()){
+            notes = noteService.findAllByTitleContaining(search.get(), pageable);
+            notescontent = noteService.findAllByContentContaining(search.get(), pageable);
+        } else {
+            notes = noteService.findAll(pageable);
+            notescontent = null;
+        }
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("notes", notes);
+        modelAndView.addObject("notescontent", notescontent);
         return modelAndView;
     }
 

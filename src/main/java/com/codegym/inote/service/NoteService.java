@@ -16,4 +16,8 @@ public interface NoteService {
 
     Iterable<Note> findAllByNotetype(Notetype notetype);
 
+    Page<Note> findAllByTitleContaining(String titlenote, Pageable pageable);
+
+    Page<Note> findAllByContentContaining(String content, Pageable pageable);
+
 }

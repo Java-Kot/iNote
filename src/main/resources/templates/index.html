@@ -6,14 +6,30 @@
 <th:block th:each="note : ${notes}">
 <div class="anote col-md-3 col-sm-12">
     <div>
-        <span th:text="${note.id}" class="anote_id"></span>
-        <span class="anote_del"><a th:href="@{/del-note/__${note.id}__ }">delete</a></span>
-        <span class="anote_edit"><a th:href="@{/edit-note/__${note.id}__ }">edit</a></span>
-        <h1 th:text="${note.title}" class="anote_title"></h1>
-        <h3 th:text="${note.notetype.name}" class="anote_type">notetype</h3>
+        <nav class="anote_head">
+            <span th:text="${note.id}" class="anote_id"></span>
+            <span class="anote_del"><a class="btn btn-outline-danger" th:href="@{/del-note/__${note.id}__ }">delete</a></span>
+            <span class="anote_edit"><a class="btn btn-outline-success" th:href="@{/edit-note/__${note.id}__ }">edit</a></span>
+            <h1 th:text="${note.title}" class="anote_title"></h1>
+            <h3 th:text="${note.notetype.name}" class="anote_type">notetype</h3>
+        </nav>
         <p th:text="${note.content}" class="anote_content">content</p>
     </div>
 </div>
+</th:block>
+<th:block th:each="ncontent : ${notescontent}">
+    <div class="anote col-md-3 col-sm-12">
+        <div>
+            <nav class="anote_head">
+                <span th:text="${ncontent.id}" class="anote_id"></span>
+                <span class="anote_del"><a class="btn btn-outline-danger" th:href="@{/del-note/__${ncontent.id}__ }">delete</a></span>
+                <span class="anote_edit"><a class="btn btn-outline-success" th:href="@{/edit-note/__${ncontent.id}__ }">edit</a></span>
+                <h1 th:text="${ncontent.title}" class="anote_title"></h1>
+                <h3 th:text="${ncontent.notetype.name}" class="anote_type">notetype</h3>
+            </nav>
+            <p th:text="${ncontent.content}" class="anote_content">content</p>
+        </div>
+    </div>
 </th:block>
 <div style="clear:both"></div>
 <footer th:replace="layout :: footer"></footer>

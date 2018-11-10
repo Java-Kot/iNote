@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+<nav th:replace="layout :: menu"></nav>
+<th:block th:each="note : ${notes}">
+    <div class="anote col-md-3 col-sm-12">
+        <div>
+            <nav class="anote_head">
+                <span th:text="${note.id}" class="anote_id"></span>
+                <span class="anote_del"><a class="btn btn-outline-danger" th:href="@{/del-note/__${note.id}__ }">delete</a></span>
+                <span class="anote_edit"><a class="btn btn-outline-success" th:href="@{/edit-note/__${note.id}__ }">edit</a></span>
+                <h1 th:text="${note.title}" class="anote_title"></h1>
+                <h3 th:text="${note.notetype.name}" class="anote_type">notetype</h3>
+            </nav>
+            <p th:text="${note.content}" class="anote_content">content</p>
+        </div>
+    </div>
+</th:block>
+</body>
+</html>
