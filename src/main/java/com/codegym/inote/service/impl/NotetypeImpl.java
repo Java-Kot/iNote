@@ -24,7 +24,7 @@ public class NotetypeImpl implements NotetypeService {
 
     @Override
     public void save(TypeNote typeNote) {
-
+        notetypeRepository.save(typeNote);
     }
 
     @Override

@@ -19,6 +19,10 @@ public class NotetypeFormatter implements Formatter<TypeNote> {
         this.notetypeService = notetypeService;
     }
 
+    public NotetypeFormatter() {
+
+    }
+
     @Override
     public TypeNote parse(String text, Locale locale) throws ParseException {
         return notetypeService.findById(Integer.parseInt(text));
