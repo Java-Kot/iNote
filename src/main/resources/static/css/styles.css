@@ -12,6 +12,7 @@ body{
     padding: 3px 5px 0;
 }
 .anote {float: left}
+
 .anote > div{
     background: beige;
     height: 300px;
