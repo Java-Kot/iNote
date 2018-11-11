@@ -46,6 +46,11 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
+    public Page<Note> findAllByTitleContainingOrContentContaining(String titlenote, String content, Pageable pageable) {
+        return noteRepository.findAllByTitleContainingOrContentContaining(titlenote, content, pageable);
+    }
+
+    @Override
     public Page<Note> findAllByContentContaining(String content, Pageable pageable) {
         return noteRepository.findAllByContentContaining(content, pageable);
     }

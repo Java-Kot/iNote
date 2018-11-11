@@ -11,5 +11,8 @@ public interface NoteRepository extends PagingAndSortingRepository<Note, Integer
 
     Page<Note> findAllByTitleContaining(String titlenote, Pageable pageable);
 
+    Page<Note> findAllByTitleContainingOrContentContaining(String title, String content, Pageable pageable);
+
     Page<Note> findAllByContentContaining(String content, Pageable pageable);
+
 }

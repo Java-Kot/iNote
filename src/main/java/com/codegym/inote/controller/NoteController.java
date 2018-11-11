@@ -30,17 +30,13 @@ public class NoteController {
     @GetMapping("/")
     public ModelAndView showIndex(@RequestParam("search") Optional<String> search, Pageable pageable){
         Page<Note> notes;
-        Page<Note> notescontent;
         if(search.isPresent()){
-            notes = noteService.findAllByTitleContaining(search.get(), pageable);
-            notescontent = noteService.findAllByContentContaining(search.get(), pageable);
+            notes = noteService.findAllByTitleContainingOrContentContaining(search.get(), search.get(), pageable);
         } else {
             notes = noteService.findAll(pageable);
-            notescontent = null;
         }
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("notes", notes);
-        modelAndView.addObject("notescontent", notescontent);
         return modelAndView;
     }
 
